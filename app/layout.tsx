@@ -1,18 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Seo from "@/seo/Seo";
 import { siteConfig } from "@/lib/config";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Header from "@/components/navigation/header/Header";
+import Footer from "@/components/navigation/footer/Footer";
 
 export const metadata: Metadata = {
   title: siteConfig.site.title,
@@ -34,9 +25,11 @@ export default function RootLayout({
       <Seo />
       <body
         suppressHydrationWarning={true}
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`font-cobane antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

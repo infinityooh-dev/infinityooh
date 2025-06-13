@@ -1,0 +1,61 @@
+import Image from "next/image";
+import { serviceData } from "./data";
+import CustomButton from "@/components/custom/shared/CustomButton";
+import Link from "next/link";
+import { FiArrowUpRight } from "react-icons/fi";
+
+const Services = () => {
+     return ( 
+         <section id="services" className="max-w-11/12 2xl:max-w-[1376px] mx-auto px-4 py-8 lg:px-16 lg:py-8 bg-secondary w-full border border-black rounded-[20px] "> 
+            <div className="section-header flex justify-start items-center">
+                <h2 className="text-[64px] leading-24 text-black font-bold">
+                    Services
+                </h2>
+            </div>
+            <div className="services-items-container relative py-44">
+                <div className="bg-line-vector absolute inset-0 w-full h-full flex justify-center items-center">
+                    <div className="relative max-w-11/12 lg:max-w-[974px] min-h-[1735.45px] w-full h-full mx-auto">
+                        <Image src={"/images/brand/lines/line-vector.svg"} alt="line vector" fill className="object-cover" />
+                    </div>
+                </div>
+                <div className="service-grid flex flex-col gap-8 z-10">
+                    {
+                        serviceData.map(service => {
+                            return(
+                                <div key={service.id} className="service-item w-full flex justify-start items-center">
+                                    <div style={{ backgroundColor: service.color }} className="flex w-full flex-col lg:flex-row lg:w-8/12 min-h-[290px] justify-center items-center gap-4.5 px-8 py-4 rounded-lg border border-black drop-shadow-effect-lg">
+                                        <div className="image max-w-[258px] max-h-[258px] w-[258px] aspect-square h-full relative">
+                                            <Image src={service.src} alt={service.alt} fill className="object-cover" />
+                                        </div>
+                                        <div className="text-content flex justify-start items-start flex-col gap-4">
+                                            <h3 className="text-2xl font-semibold w-full">
+                                                {service.title}
+                                            </h3>
+                                            <p className="w-full">
+                                                {service.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+            <div className="flex w-full justify-center items-center">
+                <div className="cta bg-white max-w-[678px] flex justify-center items-center flex-col gap-8 p-8 border border-black rounded-xl mt-16 mb-5">
+                    <h3 className="text-4xl font-semibold text-center text-black">
+                        Ready to get going?
+                    </h3>
+                    <CustomButton btnName="Get in touch" />
+                    <p>
+                        <Link href="/contact" className="text-black underline flex items-center gap-1 font-semibold text-xl">
+                            Learn more about how we set ourselves apart from the crowd <span><FiArrowUpRight className="font-semibold" /></span>
+                        </Link>
+                    </p>
+                </div>
+            </div>
+         </section> 
+    ) 
+} 
+export default Services;

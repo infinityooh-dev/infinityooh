@@ -20,13 +20,12 @@ export type MAGPayload = {
 }
 
 export type CTAFormInputs = {
-    fullName: string;
-    email: string;
-    dialCode: string
-    mobile: string;
-    company: string;
-    message: string | null;
-    consent: boolean
-  }
+  fullName: string;
+  email: string;
+  dialCode: string;
+  mobile: string;
+  message: string | null;
+  // consent: boolean
+};
 
 export type ContactFormPayload = CTAFormInputs & { landingUrl: string, queryParams: string, formSource: string, executeRecaptcha: (action: string) => Promise<string> }

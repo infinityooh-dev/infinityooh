@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/br-cobane');
 @import "tailwindcss";
 
 :root {
@@ -10,17 +11,130 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-cobane: 'BR Cobane', sans-serif;
+  --color-primary: #FDFFFC;
+  --color-secondary: #FBFFF7;
+  --color-secondary-200: #E2FFC4;
+  --color-tertiary-100: #F7FEFF;
+  --color-tertiary-200: #FFFFF7;
+  --color-tertiary-300: #F8F7FF;
+  --color-tertiary-400: #F7FFFB;
+  --color-tertiary-500: #F7FBFF;
+  --color-btn-green: #4D6A5E;
+  --color-btn-blue: #3E7BA9;
 }
 
 body {
-  background: var(--background);
+  background: var(--color-primary);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
+
+.grecaptcha-badge{
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.secondary-btn span{
+  text-decoration: underline;  
+}
+
+.drop-shadow-effect{
+  filter: drop-shadow(0px 2px 0px #000000);
+}
+
+.drop-shadow-effect-lg{
+  filter: drop-shadow(0px 4px 0px #000000);
+}
+
+.service-item:nth-child(even){
+  flex-direction: row-reverse;
+}
+
+.why-infinity-card-container{
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  gap: 2rem;
+}
+
+
+
+/* .section-header, .section-sub-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h2, h3{
+    width: 100%;
+    max-width: 91.6667%;
+  }
+} */
+
+
+.hero .hero-content h1:nth-child(1){
+  transform: translateX(-100%);
+  animation: slide-in-first-child 0.5s ease-in-out forwards;
+}
+.hero .hero-content h1:nth-child(2){
+  transform: translateX(-100%);
+  animation: slide-in-second-child 0.5s ease-in-out forwards;
+}
+
+@keyframes slide-in-first-child {
+  0%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-in-second-child {
+  0%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+
+.section-header h2{
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .section-header h2{
+    font-size: 64px;
+  }
+
+  .luxury-lifestyle:nth-child(1){
+    flex-direction: row;
+  }
+
+  .luxury-lifestyle:nth-child(2){
+    flex-direction: row-reverse;
+  }
+
+  .why-infinity-card:nth-child(1), .why-infinity-card:nth-child(4){
+    margin-top: 0;
+  } 
+  
+  .why-infinity-card:nth-child(2){
+    margin-top: 32px;
+  }
+  
+  .why-infinity-card:nth-child(3){
+    margin-top: 64px;
+  }
+  
+  .why-infinity-card:nth-child(5){
+    margin-top: 32px;
+  }
+}
+

@@ -3,6 +3,14 @@ import { siteConfig } from "./config";
 import { BreadcrumbType, LabelType } from "./types/common";
 import { IconType } from "react-icons";
 
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+
 export const getMediaURL = (path: string, base?: boolean) => {
   const isDev = siteConfig.env.isDev;
   const cdnUrl = siteConfig.aws.cdn.url;
