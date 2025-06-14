@@ -9,8 +9,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="px-6 py-4 rounded-full bg-white/35 flex justify-between items-center backdrop-blur-md w-full max-w-11/12 lg:max-w-[1312px] absolute top-11 left-1/2 -translate-x-1/2 z-50">
-      <div className="flex items-center justify-between w-full">
+    <nav className="absolute top-11 left-1/2 z-50 flex w-full max-w-11/12 -translate-x-1/2 items-center justify-between rounded-full bg-white/35 px-6 py-4 backdrop-blur-md lg:max-w-[1312px]">
+      <div className="flex w-full items-center justify-between gap-16">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
@@ -23,7 +23,7 @@ const Header = () => {
 
         {/* Hamburger Button (mobile only) */}
         <button
-          className="md:hidden text-black"
+          className="text-black md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -31,7 +31,7 @@ const Header = () => {
         </button>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-12">
+        <div className="hidden w-full items-center justify-between gap-12 md:flex">
           <ul className="flex items-center gap-8">
             <li>
               <Link href="/about" className="text-black hover:underline">
@@ -56,7 +56,7 @@ const Header = () => {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-full bg-white shadow-lg rounded-xl md:hidden p-6 space-y-4">
+        <div className="absolute top-full left-0 mt-2 w-full space-y-4 rounded-xl bg-white p-6 shadow-lg md:hidden">
           <ul className="space-y-4">
             <li>
               <Link

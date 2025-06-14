@@ -10,7 +10,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-
 export const getMediaURL = (path: string, base?: boolean) => {
   const isDev = siteConfig.env.isDev;
   const cdnUrl = siteConfig.aws.cdn.url;
@@ -70,7 +69,8 @@ type Result<T, E = ServerActionError> = Success<T> | Failure<E>;
 // Main wrapper function
 export async function tryCatch<T, E = ServerActionError>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  promise: Promise<T>, errorType?: new (...args: any[]) => E
+  promise: Promise<T>,
+  errorType?: new (...args: any[]) => E
 ): Promise<Result<T, E>> {
   try {
     const data = await promise;
@@ -90,3 +90,30 @@ export async function tryCatch<T, E = ServerActionError>(
     return { data: null, error: error as E };
   }
 }
+
+export const getUserIPonPageLoad = async () => {
+  try {
+    const ipRequest = await fetch("https://api.ipify.org/?format=json");
+
+    const data = await ipRequest.json();
+
+    const ip = data["ip"];
+
+    sessionStorage.setItem("userIP", ip);
+    return ip;
+  } catch {
+    // console.log(`Could not get user IP: ${error}`);
+    return "0.0.0.0";
+  }
+};
+
+export const getUserIp = async () => {
+  const IPinSession = sessionStorage.getItem("userIP");
+
+  if (IPinSession) {
+    return IPinSession;
+  } else {
+    const userIP = await getUserIPonPageLoad();
+    return userIP;
+  }
+};

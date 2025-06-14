@@ -1,19 +1,27 @@
 // @/components/custom/modals/useModals.tsx
-import { useState } from 'react';
-import { RootState } from '@/lib/redux/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { useCallback } from 'react';
-import { setConsentModal } from '@/lib/redux/slices/ContactModalsSlices';
+import { useState } from "react";
+import { RootState } from "@/lib/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from "react";
+import {
+  setConsentModal,
+  setModalFormHeading,
+  setModalFormLeadSource,
+  setModalId,
+  toggleBookingPopupModalOpen,
+} from "@/lib/redux/slices/ContactModalsSlices";
+import { ModalIDTypes } from "@/lib/types/ctaTypes";
 
 const useModals = () => {
   const dispatch = useDispatch();
-  const { consentModal } = useSelector((state: RootState) => state.contactModals);
+  const { consentModal, bookingModalPopup, modalId } = useSelector(
+    (state: RootState) => state.contactModals
+  );
 
   const [isCookieConsentOpen, setIsCookieConsentOpen] = useState(false);
   const setAllModalsClosed = useCallback(() => {
     setIsCookieConsentOpen(false);
   }, []);
-
 
   const closeCookieConsent = useCallback(() => {
     setIsCookieConsentOpen(false);
@@ -23,17 +31,56 @@ const useModals = () => {
     setIsCookieConsentOpen(true);
   }, []);
 
-  const handleConsentModal = useCallback((open: boolean) => {
+  const handleConsentModal = useCallback(
+    (open: boolean) => {
+      setAllModalsClosed();
+      dispatch(setConsentModal(open));
+    },
+    [dispatch, setAllModalsClosed]
+  );
+
+  const setBookingPopupModalOpen = useCallback(() => {
     setAllModalsClosed();
-    dispatch(setConsentModal(open))
-  }, [dispatch, setAllModalsClosed])
+    dispatch(toggleBookingPopupModalOpen());
+  }, [dispatch, setAllModalsClosed]);
+
+  const setModalFormDetails = useCallback(
+    (data: {
+      leadSource: string;
+      formHeading?: string;
+      modalId?: ModalIDTypes;
+    }) => {
+      dispatch(setModalFormLeadSource(data.leadSource));
+
+      if (data.formHeading) {
+        dispatch(setModalFormHeading(data.formHeading));
+      } else {
+        dispatch(
+          setModalFormHeading(
+            "We don’t just create partnerships—<strong>we ignite movements.</strong> Partner with us to <strong>harness the power of sport</strong> and achieve extraordinary results."
+          )
+        );
+      }
+
+      if (data.modalId) {
+        dispatch(setModalId(data.modalId));
+      } else {
+        dispatch(setModalId("contact-form"));
+      }
+    },
+    [dispatch]
+  );
 
   return {
     closeCookieConsent,
     openCookieConsent,
     handleConsentModal,
     isCookieConsentOpen,
-    consentModal
+    consentModal,
+    setBookingPopupModalOpen,
+    bookingModalPopup,
+    modalId,
+    setModalFormDetails,
   };
 };
 

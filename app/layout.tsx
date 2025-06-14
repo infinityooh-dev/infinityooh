@@ -4,6 +4,7 @@ import Seo from "@/seo/Seo";
 import { siteConfig } from "@/lib/config";
 import Header from "@/components/navigation/header/Header";
 import Footer from "@/components/navigation/footer/Footer";
+import ClientProvider from "@/components/custom/providers/ClientLayoutProvider";
 
 export const metadata: Metadata = {
   title: siteConfig.site.title,
@@ -27,9 +28,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`font-cobane antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
   );

@@ -3,6 +3,12 @@ import { getMediaURL } from "@/lib/utils";
 import Head from "next/head";
 import Script from "next/script";
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+    gtag: (...args: [string, string, Record<string, unknown>?]) => void;
+  }
+}
 
 const Seo = () => {
   const schemaData = {
@@ -85,11 +91,12 @@ const Seo = () => {
         }}
       />
       {/* Google Tag Manager & Consent */}
-      {siteConfig.google.gtm && <Script
-        id="gtm"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+      {siteConfig.google.gtm && (
+        <Script
+          id="gtm"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag() {
                 window.dataLayer.push(arguments);
@@ -113,8 +120,9 @@ const Seo = () => {
                 f.parentNode.insertBefore(j, f);
               })(window, document, "script", "dataLayer", "${siteConfig.google.gtm}");
             `,
-        }}
-      />}
+          }}
+        />
+      )}
     </Head>
   );
 };

@@ -12,6 +12,7 @@ type CustomButtonProps = {
   variant?: "primary" | "secondary";
   isLink?: boolean;
   href?: string;
+  showIcon?: boolean;
 };
 
 const CustomButton = ({
@@ -23,6 +24,7 @@ const CustomButton = ({
   variant = "primary",
   isLink = false,
   href = "/",
+  showIcon = true,
 }: CustomButtonProps) => {
   const styleVariant = {
     primary:
@@ -49,7 +51,7 @@ const CustomButton = ({
       )}
     >
       <span>{btnName}</span>
-      <Icon color={iconColor} className="text-3xl" />
+      {showIcon && <Icon color={iconColor} className="text-3xl" />}
     </button>
   );
 };
