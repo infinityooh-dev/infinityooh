@@ -1,5 +1,4 @@
 import { siteConfig } from "@/lib/config";
-import { getMediaURL } from "@/lib/utils";
 import Head from "next/head";
 import Script from "next/script";
 
@@ -22,12 +21,12 @@ const Seo = () => {
       name: siteConfig.site.name,
       logo: {
         "@type": "ImageObject",
-        url: getMediaURL("<ROUTE TO THE WEBSITE LOGO>"), // TODO: set the website logo url
+        url: "<ROUTE TO THE WEBSITE LOGO>", // TODO: set the website logo url
       },
     },
     image: {
       "@type": "ImageObject",
-      url: getMediaURL("<ROUTE TO THE WEBSITE LOGO>"), // TODO: set the website logo url
+      url: "<ROUTE TO THE WEBSITE LOGO>", // TODO: set the website logo url
       width: 1200,
       height: 630,
     },

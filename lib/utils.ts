@@ -68,8 +68,8 @@ type Result<T, E = ServerActionError> = Success<T> | Failure<E>;
 
 // Main wrapper function
 export async function tryCatch<T, E = ServerActionError>(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   promise: Promise<T>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errorType?: new (...args: any[]) => E
 ): Promise<Result<T, E>> {
   try {
@@ -117,3 +117,14 @@ export const getUserIp = async () => {
     return userIP;
   }
 };
+
+export const getSiteDomain = (www = true) => {
+  return siteConfig.site.url
+    .replace("http://", www ? "www." : "")
+    .replace("https://", www ? "www." : "");
+};
+
+export function getCookie(name: string) {
+  const match = document.cookie.match(new RegExp(`(^|; )${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[2]) : null;
+}

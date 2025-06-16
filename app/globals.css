@@ -186,6 +186,16 @@ html {
   .why-infinity-card:nth-child(5) {
     margin-top: 32px;
   }
+}  
+
+@media screen and (min-width: 1024px) and (max-width: 1514px){
+  .why-infinity-card:nth-child(3) {
+    margin-top: 0;
+  }
+
+  .why-infinity-card:nth-child(4) {
+    margin-top: 32px;
+  }
 }
 
 /* Modal open/close animation */
