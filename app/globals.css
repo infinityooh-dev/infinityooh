@@ -24,6 +24,58 @@
   --color-btn-blue: #3e7ba9;
 }
 
+@layer utilities {
+  /* Font Sizes */
+  .fs-xs {
+    font-size: clamp(0.78rem, 0.03vw + 0.77rem, 0.8rem);
+    line-height: 1.3;
+  }
+
+  .fs-sm {
+    font-size: clamp(0.94rem, 0.11vw + 0.91rem, 1rem);
+    line-height: 1.3;
+  }
+
+  .fs-base {
+    font-size: clamp(1.13rem, 0.22vw + 1.07rem, 1.25rem);
+    line-height: 1.3;
+  }
+
+  .fs-md {
+    font-size: clamp(1.35rem, 0.37vw + 1.26rem, 1.56rem);
+    line-height: 1.2;
+  }
+
+  .fs-lg {
+    font-size: clamp(1.62rem, 0.59vw + 1.48rem, 1.95rem);
+    line-height: 1.2;
+  }
+
+  .fs-xl {
+    font-size: clamp(1.94rem, 0.87vw + 1.74rem, 2.44rem);
+    line-height: 1.1;
+  }
+
+  .fs-2xl {
+    font-size: clamp(2.33rem, 1.26vw + 2.04rem, 3.05rem);
+    line-height: 1.1;
+  }
+
+  .fs-3xl {
+    font-size: clamp(2.8rem, 1.79vw + 2.39rem, 3.81rem);
+    line-height: 1.1;
+  }
+
+  .fs-4xl {
+    font-size: clamp(3.36rem, 2.48vw + 2.79rem, 4.77rem);
+    line-height: 1.1;
+  }
+
+  .standard-width {
+    @apply md:w-[90%] w-full lg:w-[80%] ml-auto;
+  }
+}
+
 body {
   background: var(--color-primary);
   color: var(--foreground);

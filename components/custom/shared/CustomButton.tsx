@@ -40,7 +40,7 @@ const CustomButton = ({
       )}
     >
       <span>{btnName}</span>
-      <Icon color={iconColor} className="text-3xl" />
+      {showIcon && <Icon color={iconColor} className="text-3xl" />}
     </Link>
   ) : (
     <button
