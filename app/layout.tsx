@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Seo from "@/seo/Seo";
 import { siteConfig } from "@/lib/config";
-import Header from "@/components/navigation/header/Header";
-import Footer from "@/components/navigation/footer/Footer";
 import ClientProvider from "@/components/custom/providers/ClientLayoutProvider";
 
 export const metadata: Metadata = {
