@@ -10,14 +10,14 @@ type CTASectionProps = {
 
 const CTASection = ({ leadsource }: CTASectionProps) => {
   return (
-    <section className="relative mx-auto flex w-full max-w-11/12 flex-col items-center justify-center rounded-[20px] border border-black bg-secondary px-4 py-8 lg:items-start lg:px-16 lg:py-8 2xl:max-w-[1376px]">
+    <section className="cta-section max-w-11/12 bg-secondary relative mx-auto flex w-full flex-col items-center justify-center rounded-[20px] border border-black px-4 py-8 lg:items-start lg:px-16 lg:py-8 2xl:max-w-[1376px]">
       <div className="section-header">
-        <h2 className="text-[64px] leading-24 font-bold text-black">
+        <h2 className="leading-24 text-[64px] font-bold text-black">
           Ready? Let&apos;s go!
         </h2>
       </div>
       <div className="form-container flex flex-col items-center justify-center gap-8 lg:flex-row lg:gap-0">
-        <div className="lhs z-10 flex flex-col items-start justify-center gap-8 rounded-xl border border-black bg-white p-4 max-sm:max-w-11/12 lg:-mr-8 lg:p-8">
+        <div className="lhs z-10 flex flex-col items-start justify-center gap-8 rounded-xl border border-black bg-white p-4 lg:-mr-8 lg:p-8">
           <div className="text-content flex flex-col items-start justify-start gap-4">
             <h3 className="text-xl font-semibold lg:text-2xl">
               Let&apos;s Build Something Big

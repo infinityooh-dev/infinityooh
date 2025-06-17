@@ -5,7 +5,7 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { cn } from "@/lib/utils";
-import { MdCloseFullscreen } from "react-icons/md";
+import { AiOutlineCloseSquare } from "react-icons/ai";
 // import { motion } from 'framer-motion';
 
 const Dialog = DialogPrimitive.Root;
@@ -49,15 +49,13 @@ const DialogContent = React.forwardRef<
       {!hideOverlay && <DialogOverlay />}
       {!hideOverlay && (
         <DialogClose
-          className={`close-btn fixed top-4 ${isBookingForm && "mix-blend-difference"} pointer-events-auto right-6 z-[1000] text-xl font-bold text-white lg:right-3 lg:mix-blend-normal`}
+          className={`close-btn fixed top-4 ${isBookingForm && "mix-blend-difference"} pointer-events-auto right-6 z-[1000] flex items-center justify-center gap-3 rounded-sm border border-black bg-[#FFF8F7] px-2 py-1 text-xl font-bold text-black lg:right-3 lg:mix-blend-normal`}
           asChild={false}
         >
-          <div className="close cursor-pointer border-2 p-2 hover:border-white hover:bg-white hover:text-black focus:outline-none">
-            <MdCloseFullscreen />
+          <p className="mt-0.5 text-sm uppercase">close</p>
+          <div className="close cursor-pointer rounded-sm font-bold text-[#8B3D31] focus:outline-none">
+            <AiOutlineCloseSquare />
           </div>
-          <p className="font-oswald mt-0.5 text-sm uppercase underline">
-            close
-          </p>
         </DialogClose>
       )}
 
@@ -68,7 +66,7 @@ const DialogContent = React.forwardRef<
         className={cn(
           "z-50 transition-all duration-400 ease-out",
           position === "center"
-            ? "fixed top-1/2 left-1/2 flex max-h-[90vh] w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 flex-col justify-between overflow-hidden md:max-h-[70vh]"
+            ? "fixed top-1/2 left-1/2 flex max-h-[90vh] w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 flex-col justify-between overflow-hidden md:max-h-[90vh]"
             : "fixed bottom-2 left-2 w-[95vw]",
           className
         )}

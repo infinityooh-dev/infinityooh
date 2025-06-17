@@ -6,8 +6,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import useModals from "../useModal";
-import CTAForm from "../../sections/cta/CTAForm";
-import Image from "next/image";
+// import CTAForm from "../../sections/cta/CTAForm";
+// import Image from "next/image";
+import CTASection from "../../sections/cta/CTASection";
 
 const ContactModal = () => {
   const { contactModal, setContactModal, } =
@@ -21,19 +22,10 @@ const ContactModal = () => {
 
   return (
     <Dialog open={contactModal.isOpen} onOpenChange={setContactModal}>
-      <DialogContent className="flex justify-center max-sm:justify-end items-center max-sm:max-h-[90vh] max-lg:max-h-[82svh] h-full overflow-y-auto">
-        <div className="modal-test flex justify-center items-center flex-col-reverse lg:flex-row">
-            <DialogTitle className="sr-only">Contact</DialogTitle>
-            <div className="relative w-full lg:max-w-[500px] z-10 ">
-                <div className="relative flex h-full overflow-y-auto">
-                  <CTAForm leadsource={contactForm.FormSource} />
-                </div>
-            </div>
-            <div className="relative w-full lg:-ml-8 px-4 pt-4 max-w-11/12 max-lg:-mb-14 lg:max-w-[300px] lg:w-[400px] lg:py-10 rounded-t-2xl lg:rounded-r-2xl overflow-hidden">
-                <div className="rhs w-full aspect-[3/6] rounded-2xl overflow-hidden">
-                    <Image src={"/images/sections/services/carousel/services-1.webp"} alt="Contact Form Image" fill className="object-cover" sizes="80vw" />
-                </div>
-          </div>
+      <DialogContent className="modal-container flex h-full overflow-y-auto">
+        <div>
+          <DialogTitle className="sr-only"> Contact Modal</DialogTitle>
+          <CTASection leadsource={contactForm.FormSource} />
         </div>
       </DialogContent>
     </Dialog>

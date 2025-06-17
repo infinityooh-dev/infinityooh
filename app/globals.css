@@ -72,7 +72,7 @@
   }
 
   .standard-width {
-    @apply md:w-[90%] w-full lg:w-[80%] ml-auto;
+    @apply ml-auto w-full md:w-[90%] lg:w-[80%];
   }
 }
 
@@ -186,9 +186,9 @@ html {
   .why-infinity-card:nth-child(5) {
     margin-top: 32px;
   }
-}  
+}
 
-@media screen and (min-width: 1024px) and (max-width: 1514px){
+@media screen and (min-width: 1024px) and (max-width: 1514px) {
   .why-infinity-card:nth-child(3) {
     margin-top: 0;
   }
@@ -238,4 +238,74 @@ html {
 .modal.closing {
   animation: modal-fade-out 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   pointer-events: none;
+}
+
+.PhoneInputInput{
+  outline: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .modal-container{
+    .cta-section{
+      max-width: 100%;
+      padding: calc(0.25rem * 8) calc(0.25rem * 6);
+      align-items: center;
+    }
+
+    .section-header{
+      width: 100%;
+    }
+
+    .form-container{
+      .lhs{
+        max-width: 514px;
+        width: 100%;
+      }
+
+      .rhs{
+        max-width: 546px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .modal-container {
+    border-radius: 20px;
+
+    .section-header{
+      width: 100%;
+      h2{
+        font-size: 30px;
+        line-height: normal;
+        padding-bottom: 1rem;
+        text-align: left;
+      }
+    };
+
+    .form-container {
+      gap: 0;
+
+      .lhs {
+        margin-bottom: -10px;
+        gap: calc(0.25rem * 4);
+        padding-bottom: 20px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+
+      .rhs {
+        z-index: 20;
+
+        form {
+          padding-top: calc(0.25rem * 4);
+
+          .form-inputs-container {
+            gap: calc(0.25rem * 4);
+          }
+        }
+      }
+    }
+  }
 }

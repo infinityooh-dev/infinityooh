@@ -22,7 +22,7 @@ const CTAForm = ({ leadsource }: CTAFormProps) => {
     }
      return (
        <form
-         className="drop-shadow-effect-lg mx-auto w-full max-w-full rounded-xl border border-black bg-tertiary-500 px-4 py-8 max-lg:max-w-11/12 lg:py-14 lg:pr-16 lg:pl-20"
+         className="drop-shadow-effect-lg mx-auto w-full max-w-full rounded-xl border border-black bg-tertiary-500 px-4 py-8 lg:py-14 lg:pr-16 lg:pl-20"
          onSubmit={handleSubmit(handleSubmitForm)}
        >
          <div className="form-inputs-container flex flex-col items-start justify-start gap-8">
