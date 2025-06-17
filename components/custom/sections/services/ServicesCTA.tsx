@@ -6,8 +6,8 @@ import Image from "next/image";
 import { useState } from "react";
 import Swiper from "swiper";
 import { SwiperSlide } from "swiper/react";
-import { serviceCarouselData } from "./data";
-import { homePageServiceCTATextContent } from "../../data";
+import { serviceCarouselData } from "../../../../app/(home)/components/services/data";
+import { homePageServiceCTATextContent } from "../../../../app/(home)/data";
 
 
 type ServicesCTAProps = {

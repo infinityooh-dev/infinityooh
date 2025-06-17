@@ -8,6 +8,7 @@ interface ContactModalsType {
   modalLeadSource: string;
   modalFormHeading: string;
   modalId: ModalIDTypes;
+  contactModal: ContactModalType;
 }
 
 type ConsentModal = {
@@ -18,12 +19,21 @@ type BookingModalPopupType = {
   isOpen: boolean;
 };
 
+type ContactModalType = {
+  isOpen: boolean;
+  leadsource: string;
+};
+
 const initialState: ContactModalsType = {
   consentModal: {
     isOpen: false,
   },
   bookingModalPopup: {
     isOpen: false,
+  },
+  contactModal: {
+    isOpen: false,
+    leadsource: "Contact Popup Modal",
   },
   modalLeadSource: "Contact Popup Modal",
   modalFormHeading:
@@ -50,6 +60,12 @@ const ContactModals = createSlice({
     setModalId: (state, action) => {
       state.modalId = action.payload;
     },
+    setContactModalOpen: (state, action) => {
+      state.contactModal.isOpen = action.payload;
+    },
+    setContactModalLeadsource: (state, action) => {
+      state.contactModal.leadsource = action.payload;
+    },
   },
 });
 
@@ -59,6 +75,8 @@ export const {
   setModalId,
   setModalFormHeading,
   setModalFormLeadSource,
+  setContactModalOpen,
+  setContactModalLeadsource,
 } = ContactModals.actions;
 
 const ContactModalsReducer = ContactModals.reducer;

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { whyInfinityData } from './data'
 import WhyInfinityCard from './components/WhyInfinityCard'
 

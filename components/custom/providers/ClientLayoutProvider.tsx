@@ -14,6 +14,7 @@ import CookieConsentModal from "../modals/cookieConsent/CookieConsentModal";
 import BookingCalendarModal from "../modals/bookingModal/BookingCalendarModal";
 import Header from "@/components/navigation/header/Header";
 import Footer from "@/components/navigation/footer/Footer";
+import ContactModal from "../modals/contactModal/ContactModal";
 
 interface QueryContextType {
   queryParams: string;
@@ -40,6 +41,7 @@ export default function ClientProvider({ children }: { children: ReactNode }) {
       <QueryContext.Provider value={{ queryParams, currentURL }}>
         <ReCaptchaProviderWrapper>
           <Provider store={store}>
+            <ContactModal />
             <BookingCalendarModal />
             <CookieConsentModal />
             <Header />

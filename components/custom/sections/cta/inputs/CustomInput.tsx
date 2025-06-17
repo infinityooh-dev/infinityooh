@@ -24,10 +24,8 @@ const CustomInput = ({
     setValue,
     formValues
 }: CustomInputProps) => {
-    const inputStyles = "bg-white min-h-11 p-2 w-full outline-none border border-black text-white rounded-xl"
-        // : clubForm
-        // ? "bg-white p-2 min-h-11 w-full outline-none border border-black rounded"
-        // : "bg-white p-2 min-h-11 w-full max-w-9/12 outline-none border-none text-black";
+    const inputStyles =
+      "bg-white min-h-11 p-2 w-full outline-none border border-black rounded-xl";
 
     const errorStyles = 'bg-transparent min-h-11 p-2 w-full outline-none border rounded border-error';
 

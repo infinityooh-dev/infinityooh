@@ -4,7 +4,7 @@ import React from 'react';
 import { data } from './data';
 import LegalTemplate from '../template/LegalTemplate';
 import { Metadata } from 'next';
-import GenericHero from '@/components/custom/shared/hero/GenericHero';
+import GenericHero from "@/components/custom/sections/hero/GenericHero";
 // import GenericHero from '@/components/custom/shared/hero/GenericHero';
 
 const title = 'Terms & Conditions - Infinity OOH';

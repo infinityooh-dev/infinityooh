@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
 import {
   setConsentModal,
+  setContactModalLeadsource,
+  setContactModalOpen,
   setModalFormHeading,
   setModalFormLeadSource,
   setModalId,
@@ -14,9 +16,14 @@ import { ModalIDTypes } from "@/lib/types/ctaTypes";
 
 const useModals = () => {
   const dispatch = useDispatch();
-  const { consentModal, bookingModalPopup, modalId } = useSelector(
-    (state: RootState) => state.contactModals
-  );
+  const {
+    consentModal,
+    bookingModalPopup,
+    modalId,
+    modalLeadSource,
+    modalFormHeading,
+    contactModal,
+  } = useSelector((state: RootState) => state.contactModals);
 
   const [isCookieConsentOpen, setIsCookieConsentOpen] = useState(false);
   const setAllModalsClosed = useCallback(() => {
@@ -71,6 +78,16 @@ const useModals = () => {
     [dispatch]
   );
 
+  const setContactModal = useCallback(
+    (open: boolean, leadsource?: string) => {
+      dispatch(setContactModalOpen(open));
+      if (leadsource) {
+        dispatch(setContactModalLeadsource(leadsource));
+      }
+    },
+    [dispatch]
+  );
+
   return {
     closeCookieConsent,
     openCookieConsent,
@@ -81,6 +98,10 @@ const useModals = () => {
     bookingModalPopup,
     modalId,
     setModalFormDetails,
+    modalLeadSource,
+    modalFormHeading,
+    setContactModal,
+    contactModal,
   };
 };
 

@@ -1,10 +1,8 @@
 import Image from "next/image";
-import { serviceData } from "./data";
-import CustomButton from "@/components/custom/shared/CustomButton";
-import Link from "next/link";
-import { FiArrowUpRight } from "react-icons/fi";
+import { serviceData } from "../../../../app/(home)/components/services/data";
+import ServicesGetGoingCTA from "./ServicesGetGoingCTA";
 
-const Services = () => {
+const Services = ({ leadsource }: {leadsource: string}) => {
      return ( 
          <section id="services" className="max-w-11/12 2xl:max-w-[1376px] mx-auto px-4 py-8 lg:px-16 lg:py-8 bg-secondary w-full border border-black rounded-[20px] "> 
             <div className="section-header flex justify-start items-center">
@@ -42,19 +40,7 @@ const Services = () => {
                     }
                 </div>
             </div>
-            <div className="flex w-full justify-center items-center">
-                <div className="cta bg-white max-w-[678px] flex justify-center items-center flex-col gap-8 p-8 border border-black rounded-xl mt-16 mb-5">
-                    <h3 className="text-4xl font-semibold text-center text-black">
-                        Ready to get going?
-                    </h3>
-                    <CustomButton btnName="Get in touch" />
-                    <p>
-                        <Link href="/contact" className="text-black underline flex items-center gap-1 font-semibold text-xl">
-                            Learn more about how we set ourselves apart from the crowd <span><FiArrowUpRight className="font-semibold" /></span>
-                        </Link>
-                    </p>
-                </div>
-            </div>
+            <ServicesGetGoingCTA leadsource={leadsource} />
          </section> 
     ) 
 } 
