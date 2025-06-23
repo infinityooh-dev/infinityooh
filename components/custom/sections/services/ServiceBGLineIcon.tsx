@@ -59,7 +59,7 @@ const ServiceBGLineIcon = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 border border-red" ref={containerRef}>
+    <div className="absolute inset-0" ref={containerRef}>
       <svg
         className="service-bg-line max-w-full"
         width="879"
