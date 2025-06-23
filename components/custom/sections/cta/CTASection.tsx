@@ -6,14 +6,18 @@ import PhoneIcon from "../../icons/PhoneIcon";
 
 type CTASectionProps = {
   leadsource: string;
+  heading?: string;
 };
 
-const CTASection = ({ leadsource }: CTASectionProps) => {
+const CTASection = ({
+  leadsource,
+  heading = "Ready? Let's go!",
+}: CTASectionProps) => {
   return (
     <section className="cta-section max-w-11/12 bg-secondary relative mx-auto flex w-full flex-col items-center justify-center rounded-[20px] border border-black px-4 py-8 lg:items-start lg:px-16 lg:py-8 2xl:max-w-[1376px]">
       <div className="section-header">
-        <h2 className="leading-24 text-[64px] font-bold text-black">
-          Ready? Let&apos;s go!
+        <h2 className="leading-24 text-[64px] font-semibold text-black">
+          {heading}
         </h2>
       </div>
       <div className="form-container flex flex-col items-center justify-center gap-8 lg:flex-row lg:gap-0">
@@ -33,7 +37,7 @@ const CTASection = ({ leadsource }: CTASectionProps) => {
               <div className="email-icon flex h-12 w-12 items-center justify-center rounded-full border border-black bg-[#F7FEFF] text-[#96BCC1] drop-shadow-[2px_0px_0px_#96BCC1]">
                 <EmailIcon />
               </div>
-              <div className="email-link rounded-r-full bg-[#F7FEFF] px-4 py-2">
+              <div className="email-link rounded-r-full bg-[#F7FEFF] px-4 py-2 -ml-2.5">
                 <Link
                   href={"mailto:admin@infinity00h.ae"}
                   className="text-xl underline underline-offset-1 max-sm:text-sm"
@@ -51,7 +55,7 @@ const CTASection = ({ leadsource }: CTASectionProps) => {
               <div className="email-icon flex h-12 w-12 items-center justify-center rounded-full border border-black bg-[#F8F7FF] text-[#B6B0DF] drop-shadow-[2px_0px_0px_#B6B0DF]">
                 <PhoneIcon />
               </div>
-              <div className="email-link rounded-r-full bg-[#F8F7FF] px-4 py-2">
+              <div className="email-link rounded-r-full bg-[#F8F7FF] px-4 py-2 -ml-2.5">
                 <Link
                   href={"tel:+971 52 790 2321"}
                   className="text-xl underline underline-offset-1 max-sm:text-sm"

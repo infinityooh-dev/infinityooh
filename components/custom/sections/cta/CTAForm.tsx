@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import CustomInput from "./inputs/CustomInput";
 import { CTAFormInputs } from "@/lib/types/ctaTypes";
 import CustomButton from "../../shared/CustomButton";
-import { TbTargetArrow } from "react-icons/tb";
 
 type CTAFormProps = {
     leadsource: string;
@@ -11,7 +10,13 @@ type CTAFormProps = {
 
 const CTAForm = ({ leadsource }: CTAFormProps) => {
 
-    const { register, formState: { errors }, watch, handleSubmit } = useForm<CTAFormInputs>()
+    const {
+      register,
+      formState: { errors },
+      watch,
+      handleSubmit,
+      setValue,
+    } = useForm<CTAFormInputs>();
 
 
     const formValues = watch()
@@ -51,6 +56,7 @@ const CTAForm = ({ leadsource }: CTAFormProps) => {
              name="mobile"
              register={register}
              formValues={formValues}
+             setValue={setValue}
              options={{ required: "Phone Number is Required" }}
            />
            <CustomInput
@@ -62,7 +68,6 @@ const CTAForm = ({ leadsource }: CTAFormProps) => {
            />
            <CustomButton
              btnName="Send Message"
-             Icon={TbTargetArrow}
              iconColor="white"
              className="bg-[#3E7BA9] text-white"
            />

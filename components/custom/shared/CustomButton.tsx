@@ -1,12 +1,11 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { IconType } from "react-icons";
-import { TbTargetArrow } from "react-icons/tb";
+import { Icon } from "@iconify/react";
 
 type CustomButtonProps = {
   btnName: string;
   onClick?: () => void;
-  Icon?: IconType;
+  icon?: string;
   iconColor?: string;
   className?: string;
   variant?: "primary" | "secondary";
@@ -20,7 +19,7 @@ const CustomButton = ({
   onClick,
   className,
   iconColor = "#407B38",
-  Icon = TbTargetArrow,
+  icon = "gravity-ui:target-dart",
   variant = "primary",
   isLink = false,
   href = "/",
@@ -40,7 +39,7 @@ const CustomButton = ({
       )}
     >
       <span>{btnName}</span>
-      {showIcon && <Icon color={iconColor} className="text-3xl" />}
+      {showIcon && <Icon icon={icon} color={iconColor} className="text-3xl" />}
     </Link>
   ) : (
     <button
@@ -51,7 +50,7 @@ const CustomButton = ({
       )}
     >
       <span>{btnName}</span>
-      {showIcon && <Icon color={iconColor} className="text-3xl" />}
+      {showIcon && <Icon icon={icon} color={iconColor} className="text-3xl" />}
     </button>
   );
 };

@@ -32,9 +32,9 @@ const CustomInput = ({
 
     const handleInputType = () => {
         const commonProps = {
-            placeholder: label,
-            className: `${error ? errorStyles : inputStyles}`,
-            ...register(name, options)
+          // placeholder: label,
+          className: `${error ? errorStyles : inputStyles}`,
+          ...register(name, options),
         };
 
         switch (inputType) {

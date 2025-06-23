@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/br-cobane");
+@import url("https://fonts.cdnfonts.com/css/br-cobane");  
 @import "tailwindcss";
 
 :root {
@@ -20,6 +20,7 @@
   --color-tertiary-300: #f8f7ff;
   --color-tertiary-400: #f7fffb;
   --color-tertiary-500: #f7fbff;
+  --color-error: #7C0818;
   --color-btn-green: #4d6a5e;
   --color-btn-blue: #3e7ba9;
 }
@@ -101,7 +102,7 @@ html {
   filter: drop-shadow(0px 4px 0px #000000);
 }
 
-.service-item:nth-child(even) {
+.service-item:nth-child(even), .service-item:nth-child(even) .service-card {
   flex-direction: row-reverse;
 }
 
@@ -116,39 +117,107 @@ html {
   gap: 2rem;
 }
 
-/* .section-header, .section-sub-header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  h2, h3{
-    width: 100%;
-    max-width: 91.6667%;
-  }
+/* .inner-cut {
+  position: relative;
+  width: 200px; height: 200px;
+  @apply bg-white/35;
+  border-radius: 0 20px 0 20px;
 } */
+
+.inner-cut::before {
+  content: "";
+  position: absolute;
+  width: 40px; height: 40px;
+  right: -40px; bottom: 0;
+  backdrop-filter: blur(58.5%);
+  mask: radial-gradient(
+    circle at top right,
+    transparent 40px,
+    color-mix(in oklab, white 100%, transparent) 21px
+  );
+  -webkit-mask: radial-gradient(
+    circle at top right,
+    transparent 40px,
+    color-mix(in oklab, white 100%, transparent) 21px
+  );
+  background: color-mix(in oklab, #EBF1EF 100%, transparent);
+}
+
+.inner-cut-2::before {
+  content: "";
+  position: absolute;
+  width: 40px; height: 40px;
+  left: -40px; top: 0;
+  backdrop-filter: blur(58.5%);
+  mask: radial-gradient(
+    circle at bottom left,
+    transparent 40px,
+    color-mix(in oklab, #7F8A75 100%, transparent) 21px
+  );
+  -webkit-mask: radial-gradient(
+    circle at bottom left,
+    transparent 40px,
+    color-mix(in oklab, #7F8A75 100%, transparent) 21px
+  );
+  background: #7F8A75;
+}
 
 .hero .hero-content h1:nth-child(1) {
   transform: translateX(-100%);
-  animation: slide-in-first-child 0.5s ease-in-out forwards;
+  animation: slide-in-first-child 0.75s ease-in-out forwards;
+  transition: all 0.75s ease-in-out;
 }
 .hero .hero-content h1:nth-child(2) {
   transform: translateX(-100%);
-  animation: slide-in-second-child 0.5s ease-in-out forwards;
+  animation: slide-in-second-child 0.75s ease-in-out forwards;
+  transition: all 0.75s ease-in-out;
+}
+
+.why-infinity-card:hover {
+  transition: all 0.5s ease-in-out;
+  animation: hover-card 0.5s ease-in-out forwards;
+}
+
+.why-infinity-card {
+  transition: all 0.5s ease-in-out;
+  animation: no-hover-card 0.5s ease-in-out forwards;
+}
+
+@keyframes hover-card {
+  0%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-10%);
+  }
+}
+
+@keyframes no-hover-card {
+  0%{
+    transform: translateY(-10%);
+  }
+  100%{
+    transform: translateY(0%);
+  }
 }
 
 @keyframes slide-in-first-child {
   0% {
+    opacity: 0;
     transform: translateX(-100%);
   }
   100% {
+    opacity: 1;
     transform: translateX(0%);
   }
 }
 @keyframes slide-in-second-child {
   0% {
+    opacity: 0;
     transform: translateX(-100%);
   }
   100% {
+    opacity: 1;
     transform: translateX(0%);
   }
 }
@@ -189,6 +258,17 @@ html {
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1514px) {
+
+  .inner-cut::before{
+    width: 30px;
+    height: 30px;
+  }
+
+  .inner-cut-2::before{
+    width: 30px;
+    height: 30px;
+  }
+
   .why-infinity-card:nth-child(3) {
     margin-top: 0;
   }
@@ -244,7 +324,30 @@ html {
   outline: none;
 }
 
+.navbar{
+  transition: all 0.5s ease-in-out;
+}
+
+.header-scroll-state{
+  position: fixed;
+}
+
+
+
 @media screen and (min-width: 1024px) {
+  .header-scroll-state{
+    max-width: 558px;
+  }
+
+  .header-scroll-state .desktop-nav-links{
+    justify-content: start;
+    gap: 32px;
+  }
+
+  .header-scroll-state .desktop-nav-links ul li{
+    padding: 12px 8px;
+  }
+
   .modal-container{
     .cta-section{
       max-width: 100%;

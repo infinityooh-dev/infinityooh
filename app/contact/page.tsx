@@ -7,7 +7,7 @@ const page = () => {
     <main className="flex flex-col items-center gap-[32px]">
       <GenericHero heroTitle="Contact" />
       <div className="mt-16">
-        <CTASection leadsource="Contact Page" />
+        <CTASection leadsource="Contact Page" heading="Lets connect" />
       </div>
       <FaqSection />
     </main>

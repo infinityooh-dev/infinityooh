@@ -5,19 +5,25 @@ import WhyInfinityCard from './components/WhyInfinityCard'
 
 const WhyInfinity = () => {
   return (
-    <section className='w-full max-w-11/12 2xl:max-w-[1376px] mx-auto'>
-        <div className="section-header">
-            <h2 className="text-[64px] leading-24 text-black font-bold">
-                Why Infinity OOH?
-            </h2>
-        </div>
-        <div className="why-infinity-card-container w-full  mx-auto">
-            {
-                whyInfinityData.map(item => <WhyInfinityCard color={item.color} description={item.description} id={item.id} title={item.title} key={item.id} />)
-            }
-        </div>
+    <section className="max-w-11/12 mx-auto w-full 2xl:max-w-[1376px]">
+      <div className="section-header">
+        <h2 className="leading-24 text-[64px] font-semibold text-black">
+          Why Infinity OOH?
+        </h2>
+      </div>
+      <div className="why-infinity-card-container mx-auto w-full">
+        {whyInfinityData.map((item) => (
+          <WhyInfinityCard
+            color={item.color}
+            description={item.description}
+            id={item.id}
+            title={item.title}
+            key={item.id}
+          />
+        ))}
+      </div>
     </section>
-  )
+  );
 }
 
 export default WhyInfinity
