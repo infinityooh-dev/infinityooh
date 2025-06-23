@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { serviceData } from "../../../../app/(home)/components/services/data";
 import ServicesGetGoingCTA from "./ServicesGetGoingCTA";
-// import ServiceBGLineIcon from "./ServiceBGLineIcon";
-import ServiceBGLineContainer from "./ServiceBGLineContainer";
+import ServiceBGLineIcon from "./ServiceBGLineIcon";
+// import ServiceBGLineContainer from "./ServiceBGLineContainer";
 
 const Services = ({ leadsource }: { leadsource: string }) => {
   return (
@@ -24,12 +24,12 @@ const Services = ({ leadsource }: { leadsource: string }) => {
                  fill
                  className="object-cover"
                /> */}
-            {/* <div className="absolute inset-0">
+            {/* <div className="absolute inset-0"> */}
               <ServiceBGLineIcon />
-            </div> */}
-            <div className="absolute inset-0">
+            {/* </div> */}
+            {/* <div className="absolute inset-0">
               <ServiceBGLineContainer />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="service-grid z-10 flex flex-col gap-8">
