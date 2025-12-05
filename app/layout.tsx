@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/config";
 import ClientProvider from "@/components/custom/providers/ClientLayoutProvider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.site.url),
   title: siteConfig.site.title,
   description: siteConfig.site.description,
   openGraph: {
